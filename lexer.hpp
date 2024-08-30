@@ -4,22 +4,20 @@
 #include <string>
 #include <vector>
 
-enum TokenType{
-    INT,PLUS,MINUS,TIMES,DIVIDE,LPAREN,RPAREN,SEMICOLON
-};
+
 
 class Token{
     public:
-        Token(TokenType typeSet, std::string valueSet = "");
+        Token(std::string typeSet, std::string valueSet = "");
         std::string getValue();
-        TokenType getType();
+        std::string getType();
         void setValue(std::string newValue);
-        void setType(TokenType newType);
+        void setType(std::string newType);
         std::string asString();
         bool operator==(Token other){return type == other.type && value == other.value;}
         bool operator!=(Token other){return !(type == other.type && value == other.value);}
     private:
-        TokenType type;
+        std::string type;
         std::string value;
 };
 
